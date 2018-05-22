@@ -1,5 +1,7 @@
+//连接服务器 默认使用websocket
 var wbsocket = io();
 
+//如果收到‘w’通道的消息,则调用回调
 wbsocket.on('w', function(data){
   console.log('a user connected');
   wbsocket.emit('w','123');
@@ -8,6 +10,7 @@ wbsocket.on('w', function(data){
   });
 });
 
+//创建vue实例
 var app = new Vue({
   el: '#app',
   data: {
