@@ -4,9 +4,9 @@ start up
 ```
 cd Evolution/
 
-node ./Server/bin/www
+node ./bin/www
 
 ```
-https://localhost:44443 to access the https server
+https://localhost:44443 via http to access the server
 
-http://localhost:30000 to access the httpserver 
+http://localhost:30000 via https to access the server 
