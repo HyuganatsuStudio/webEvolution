@@ -5,10 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Link to external CSS file -->
         <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/socke.ioChatstyle.css">
         <!-- JavaScript & No-JavaScript tags -->
         <script src="js/vue.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
         <script  defer src="js/app.js"></script>
-
         <title>my web</title>
         
     </head>
@@ -23,7 +24,7 @@
         <div id="app">
         <transition  name="slide-fade">
           <div v-if="seen" style="text-align:center">
-            <button   class="bt" v-on:click="printt">button</button>
+            <button   class="bt" v-on:click="printt">click here to let me go</button>
           </div>
         </transition>
           <!-- <input v-model="message"> -->
@@ -31,10 +32,24 @@
             Toggle render
           </button>
           <p v-if="show">{{ message }}</p> -->
-          <div style="text-align:center">
-             
-          </div>
         </div>
-
+        <div>
+            <li class="chat page">
+                <div class="chatArea">
+                  <ul class="messages"></ul>
+                </div>
+                <div class="emoji">
+                  <button class="buttonc" id ="happy">😀</button>
+                  <button class="buttonc">😉</button>
+                </div>
+                <input class="inputMessage" placeholder="Type here..."/>
+            </li>
+          <!-- <li class="login page">
+            <div class="form">
+              <h3 class="title">What's your nickname?</h3>
+              <input class="usernameInput" type="text" maxlength="14" />
+            </div>
+          </li> -->
+        </div>
     </body>
 </html>

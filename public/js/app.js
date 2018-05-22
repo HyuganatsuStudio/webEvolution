@@ -1,3 +1,12 @@
+var wbsocket = io();
+
+wbsocket.on('w', function(data){
+  console.log('a user connected');
+  wbsocket.emit('w','123');
+  wbsocket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+});
 
 var app = new Vue({
   el: '#app',
@@ -19,11 +28,6 @@ app.$watch('message', function (newValue, oldValue) {
   console.log(newValue);
   // 这个回调将在 `vm.a` 改变后调用
 });
-// (function dd(){
-//   setTimeout(() => {
-//     app.seen = !app.seen;
-//      dd();
-//   }, 3000);
-// })();
+
 
 
