@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('../httpServer');
 var debug = require('debug');
 
 /**
@@ -101,7 +101,7 @@ var fs = require('fs');
 var privateKey  = fs.readFileSync('ssl_cert/private.pem', 'utf8');
 var certificate = fs.readFileSync('ssl_cert/my.crt', 'utf8');
 var credentials = {key: privateKey, cert: certificate};
-var httpsApp= require('../myHttpsServerApp');
+var httpsApp= require('../HttpsServerApp');
 
 /**
  * Get port from environment and store in Express.
