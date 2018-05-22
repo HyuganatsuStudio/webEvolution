@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Link to external CSS file -->
+        <link rel="stylesheet" href="GridComponent.css">
+        <!-- JavaScript & No-JavaScript tags -->
+        <script src="../js/vue.js"></script>
+        <script  defer src="GridComponent.js"></script>
+
+        <title>my web</title>
+        <!-- template for the polygraph component. -->
+
+        <script type="text/x-template" id="polygraph-template">
+          <g>
+            <polygon :points="points"></polygon>
+            <circle cx="100" cy="100" r="80"></circle>
+            <axis-label
+              v-for="(stat, index) in stats"
+              :stat="stat"
+              :index="index"
+              :total="stats.length">
+            </axis-label>
+          </g>
+        </script>
+
+        <!-- template for the axis label component. -->
+        <script type="text/x-template" id="axis-label-template">
+          <text :x="point.x" :y="point.y">{{stat.label}}</text>
+        </script>
+    </head>
+    <body>
+        <!-- component template -->
+<script type="text/x-template" id="grid-template">
+  <table>
+    <thead>
+      <tr>
+        <th v-for="key in columns"
+          @click="sortBy(key)"
+          :class="{ active: sortKey == key }">
+          {{ key | capitalize }}
+          <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="entry in filteredData">
+        <td v-for="key in columns">
+          {{entry[key]}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</script>
+
+<!-- demo root element -->
+<div id="demo">
+  <form id="search">
+    Search <input name="query" v-model="searchQuery">
+  </form>
+  <demo-grid
+    :data="gridData"
+    :columns="gridColumns"
+    :filter-key="searchQuery">
+  </demo-grid>
+</div>
+    </body>
+</html>
