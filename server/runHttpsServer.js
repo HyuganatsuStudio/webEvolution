@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../httpServer');
+var app = require('../expressServer.js');
 var debug = require('debug');
 
 /**
@@ -27,72 +27,6 @@ function normalizePort(val) {
   return false;
 }
 
-//HTTP server 
-//===========================================================
- http = require('http');
-
-/**
- * Get HTTP server port from environment and store in Express.
- */
-
-var port = ('30000');
-app.set('port', port);
-
-/**
- * Create HTTP server.
- */
-
-var server = http.createServer(app);
-
-/**
- * Listen on provided HTTP port, on all network interfaces.
- */
-
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
-
-/**
- * Event listener for HTTP server "error" event.
- */
-
-function onError(error) {
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
-
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
-
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-}
-
-/**
- * Event listener for HTTP server "listening" event.
- */
-
-function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
-}
-
-
 // HTTPS server 
 // =====================================================================
 
@@ -101,7 +35,7 @@ var fs = require('fs');
 var privateKey  = fs.readFileSync('ssl_cert/private.pem', 'utf8');
 var certificate = fs.readFileSync('ssl_cert/my.crt', 'utf8');
 var credentials = {key: privateKey, cert: certificate};
-var httpsApp= require('../HttpsServerApp');
+var httpsApp= require('../expressServer.js');
 
 /**
  * Get port from environment and store in Express.

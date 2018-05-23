@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//加载路由
 var plus = require('./routes/plus');
 
 var app = express();
