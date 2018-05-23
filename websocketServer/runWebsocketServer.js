@@ -1,6 +1,6 @@
 let express = require('express');
-var https = require('https');
-var fs = require('fs');
+let https = require('https');
+let fs = require('fs');
 let socket_io = require('socket.io');
 let path = require('path');
 let expressServer = require('../expressServer.js');
@@ -11,19 +11,19 @@ let expressServer = require('../expressServer.js');
 // app.use(express.static(path.join(__dirname, '../public')));
 
 //tls key and crt
-var privateKey  = fs.readFileSync(__dirname + '/../ssl_cert/private.pem', 'utf8');
-var certificate = fs.readFileSync(__dirname + '/../ssl_cert/my.crt', 'utf8');
-var credentials = {key: privateKey, cert: certificate};
+let privateKey  = fs.readFileSync(__dirname + '/../ssl_cert/private.pem', 'utf8');
+let certificate = fs.readFileSync(__dirname + '/../ssl_cert/my.crt', 'utf8');
+let credentials = {key: privateKey, cert: certificate};
 
 // Create https server with Express.
-var httpsServer = https.createServer(credentials,expressServer);
+let httpsServer = https.createServer(credentials,expressServer);
 
 // using socket.io to connect the clients via websocket
 let io = socket_io(httpsServer);
 numUsers = 0;
 // if connected , execute function
 io.on('connection', function(socket){
-  var addedUser = false;
+  let addedUser = false;
   // when the client emits 'add user', this listens and executes
   socket.on('add user', (username) => {
     if (addedUser) return;
