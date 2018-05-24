@@ -22,24 +22,25 @@
         <p></p>
 
         <div id="app">
-        <transition  name="slide-fade">
-          <div v-if="seen" style="text-align:center">
-            <button   class="bt" v-on:click="leave">click here to let me go</button>
-          </div>
-        </transition>
-          <input v-model="messageInput"  class="inputMessage" type="text" maxlength="14" @keyup.enter="pressEnter" @focus='clean'>
-          <div v-for="iterm in messages">
-            <p v-if="show">{{ iterm }}</p>
-          </div>
-        </div>
-        <div>
-         
-          <!-- <li class="login page">
-            <div class="form">
-              <h3 class="title">What's your nickname?</h3>
-              <input class="usernameInput" type="text" maxlength="14" />
+          <transition  name="slide-fade">
+            <div v-if="seen" style="text-align:center"> 
+              <button   class="bt" v-on:click="leave">click here to let me go</button>
             </div>
-          </li> -->
+          </transition>
+          <a class="gh-btn"href="https://github.com/org0000h" target="_blank">
+            <span class="gh-btn" aria-hidden="true"></span>
+            <span class="gh-text" id="gh-text">github</span>
+          </a>
+          <input  v-model="messageInput"
+                  class="inputMessage" 
+                  type="text"
+                  maxlength="14" 
+                  @keyup.enter="pressEnter"
+                  @focus='clean'>
+          </input>
+          <div v-for="iterm in messages">
+              <p class="msg" v-if="show">{{ iterm }}</p>
+          </div>
         </div>
     </body>
 </html>
