@@ -13,3 +13,5 @@ node websocketServer/runWebSocketServer.js // to run websocket server by socket.
 https://localhost:44443 via https to access the server
 
 http://localhost:30000 via http to access the server 
+
+https://localhost:7000 via websocket to access the server

@@ -3,14 +3,11 @@
 /**
  * Module dependencies.
  */
-
 var app = require('../expressServer.js');
 var debug = require('debug');
-
 /**
  * Normalize a port into a number, string, or false.
  */
-
 function normalizePort(val) {
   var port = parseInt(val, 10);
 
@@ -26,7 +23,6 @@ function normalizePort(val) {
 
   return false;
 }
-
 //HTTP server 
 //===========================================================
  http = require('http');
