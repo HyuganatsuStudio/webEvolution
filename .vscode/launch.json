@@ -4,20 +4,9 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "https",
-            "program": "${workspaceFolder}/server/runHttpsServer.js"
-        },
-        {
-            "type": "node",
-            "request": "launch",
             "name": "socket.io",
             "program": "${workspaceFolder}/webSocketServer/runWebSocketServer.js"
         },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "http",
-            "program": "${workspaceFolder}/server/runHttpServer.js"
-        }
+
     ]
 }
