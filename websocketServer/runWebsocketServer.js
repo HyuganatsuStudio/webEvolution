@@ -9,8 +9,8 @@ let expressServer = require('../expressServer.js');
 //===============http server===========================================
 // Create http server with Express.
 let httpServer = http.createServer(expressServer);
-httpServer.listen('80', ()=> {
-  console.log('http listening on *:' + '80');
+httpServer.listen('8000', ()=> {
+  console.log('http listening on *:' + '8000');
 });
 // using socket.io to allowed client to connect to server via websocket
 let io2 = socket_io(httpServer);
@@ -24,7 +24,7 @@ let certificate = fs.readFileSync(__dirname + '/../ssl_cert/my.crt', 'utf8');
 let credentials = {key: privateKey, cert: certificate};
 
 //  Get port from environment and store in Express.
-let Port = normalizePort(process.env.PORT || '443');
+let Port = normalizePort(process.env.PORT || '44443');
 expressServer.set('port',Port);
 
 // Create https server with Express.
