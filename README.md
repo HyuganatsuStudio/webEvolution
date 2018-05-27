@@ -2,16 +2,11 @@
 start up
 
 ```
-cd Evolution/
+cd webEvolution/
 
-node ./server/runhttpServer.js  //to run http server 
+node bin/www 
 
-node ./server/runHttpsServer.js  // to run https server
-
-node websocketServer/runWebSocketServer.js // to run websocket server by socket.io 
 ```
-https://localhost:44443 via https to access the server
+Use URL https://localhost:3000 to access the server
 
-http://localhost:30000 via http to access the server 
-
-https://localhost:7000 via websocket to access the server
+This server also supports websocket by socket.io 
