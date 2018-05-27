@@ -4,12 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Link to external CSS file -->
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="css/socke.ioChatstyle.css">
+        <link rel="stylesheet" href="stylesheets/style.css">
         <!-- JavaScript & No-JavaScript tags -->
-        <script src="js/vue.js"></script>
+        <script src="javascripts/vue.js"></script>
         <script src="/socket.io/socket.io.js"></script>
-        <script  defer src="js/client.js"></script>
+        <script  defer src="javascripts/client.js"></script>
         <title>my web</title>
         
     </head>
@@ -17,20 +16,16 @@
         <h1 v-if="seen" id = "main" class="title">Hyuganatsu Studio</h1>  
         <p></p>
         <div style="text-align:center">
-          <a   href = "SVGGraph/SVGGraph.html"  target = "_blank" class="bt"  >SVGGraph</a>
+          <a   href = "https://github.com/org0000h"  target = "_blank" class="bt"  >Github</a>
         </div>
         <p></p>
 
         <div id="app">
           <transition  name="slide-fade">
             <div v-if="seen" style="text-align:center"> 
-              <button   class="bt" v-on:click="leave">click here to let me go</button>
+              <button   class="bt" @click="leave">click here to let me go</button>
             </div>
           </transition>
-          <a class="gh-btn"href="https://github.com/org0000h" target="_blank">
-            <span class="gh-btn" aria-hidden="true"></span>
-            <span class="gh-text" id="gh-text">github</span>
-          </a>
           <input  v-model="messageInput"
                   class="inputMessage" 
                   type="text"
